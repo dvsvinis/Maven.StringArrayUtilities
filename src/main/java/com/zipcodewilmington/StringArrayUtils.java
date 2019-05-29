@@ -94,10 +94,8 @@ public class StringArrayUtils {
                 break;
             }
         }
-
         return isThere;
     }
-
 
 
     /**
@@ -106,8 +104,17 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-        return 0;
+        int counter = 0;
+
+        for (int i = 0; i < array.length; i++) {
+
+            if (value.equals(array[i])) {
+                counter++;
+            }
+        }
+        return counter;
     }
+
 
     /**
      * @param array         array of String objects
