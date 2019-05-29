@@ -42,7 +42,15 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
-        return false;
+        boolean result = false;
+
+        for (String element : array) {
+            if (element == value) {
+                return true;
+            }
+        }
+
+        return result;
     }
 
     /**
