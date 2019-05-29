@@ -135,13 +135,34 @@ public class StringArrayUtils {
         return output;
     }
 
+
+
+
     /**
      * @param array array of chars
      * @return array of Strings with consecutive duplicates removes
      */ // TODO
     public static String[] removeConsecutiveDuplicates(String[] array) {
-        return null;
+        ArrayList output = new ArrayList();
+        output.add(array[0]); //move the first value
+
+        // Iterate the remaining values checking for duplicates
+        for(int i = 1; i < array.length; i++) {
+            if(array[i-1] != array[i]) {
+                output.add(array[i]);
+            }
+        }
+
+        Object[] objArray = output.toArray();  //change ArrayList back to object array
+        String[] str = Arrays.copyOf(objArray, objArray.length, String[].class);  //change objArray to String array
+
+        return str;
     }
+
+
+
+
+
 
     /**
      * @param array array of chars
