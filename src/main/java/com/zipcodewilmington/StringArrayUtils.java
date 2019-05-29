@@ -1,4 +1,5 @@
 package com.zipcodewilmington;
+import java.util.Arrays;
 
 /**
  * Created by leon on 1/29/18.
@@ -66,11 +67,8 @@ public class StringArrayUtils {
      * @return true if the order of the array is the same backwards and forwards
      */ // TODO
     public static boolean isPalindromic(String[] array) {
-        int length = array.length;
-        int forward = 0;
         int end = array.length - 1;
         boolean result = true;
-
 
         for (int index = 0; index < array.length; index++) {
             if ( array[index] !=  array[end]) {
@@ -86,8 +84,21 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        return false;
+        boolean isThere = true;
+        String str = Arrays.toString(array);
+        str = str.toLowerCase();
+
+        for(char ch = 'a';ch <= 'z'; ++ch) {
+            if(!str.contains(String.valueOf(ch))) {
+                isThere = false;
+                break;
+            }
+        }
+
+        return isThere;
     }
+
+
 
     /**
      * @param array array of String objects
