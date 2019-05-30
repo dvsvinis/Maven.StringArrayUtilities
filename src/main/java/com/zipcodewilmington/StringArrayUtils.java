@@ -62,7 +62,6 @@ public class StringArrayUtils {
      */ // TODO
     public static String[] reverse(String[] array) {
 
-   //     ArrayList<String> list = new ArrayList<String>();
         List<String> list = Arrays.asList(array);
         System.out.println("Before Reversing : " + list);
         Collections.reverse(list);
@@ -70,7 +69,6 @@ public class StringArrayUtils {
 
         Object[] objectList = list.toArray();
         String[] stringArray =  Arrays.copyOf(objectList,objectList.length,String[].class);
-
 
         return stringArray;
     }
@@ -174,9 +172,25 @@ public class StringArrayUtils {
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
+        ArrayList<String> newList = new ArrayList<String>();
+        newList.add(array[0]);
 
-        return null;
+            for(int j = 1; j < array.length; j++) {
+                System.out.println(j);
+                if (array[j].equals(array[j - 1])){
+                    newList.set(newList.size() - 1, (newList.get(newList.size() - 1) + array[j]) );
+                    System.out.println(newList.toString());
+                }
+                else {
+                    newList.add(array[j]);
+                    System.out.println(newList.toString());
+                }
 
+        }
+        Object[] objArray = newList.toArray();  //change ArrayList back to object array
+        String[] newArray = Arrays.copyOf(objArray, objArray.length, String[].class);  //change objArray to String array
+
+        return newArray;
     }
 
 
