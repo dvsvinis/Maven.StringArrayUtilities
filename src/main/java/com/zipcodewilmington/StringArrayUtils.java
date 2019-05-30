@@ -1,7 +1,8 @@
 package com.zipcodewilmington;
 import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by leon on 1/29/18.
@@ -52,7 +53,6 @@ public class StringArrayUtils {
                 return true;
             }
         }
-
         return result;
     }
 
@@ -61,8 +61,20 @@ public class StringArrayUtils {
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        return null;
+
+   //     ArrayList<String> list = new ArrayList<String>();
+        List<String> list = Arrays.asList(array);
+        System.out.println("Before Reversing : " + list);
+        Collections.reverse(list);
+        System.out.println("After Reversing : " + list);
+
+        Object[] objectList = list.toArray();
+        String[] stringArray =  Arrays.copyOf(objectList,objectList.length,String[].class);
+
+
+        return stringArray;
     }
+
 
     /**
      * @param array array of String objects
@@ -136,8 +148,6 @@ public class StringArrayUtils {
     }
 
 
-
-
     /**
      * @param array array of chars
      * @return array of Strings with consecutive duplicates removes
@@ -148,11 +158,10 @@ public class StringArrayUtils {
 
         // Iterate the remaining values checking for duplicates
         for(int i = 1; i < array.length; i++) {
-            if(array[i-1] != array[i]) {
+            if (!array[i].equals(array[i - 1])) {
                 output.add(array[i]);
             }
         }
-
         Object[] objArray = output.toArray();  //change ArrayList back to object array
         String[] str = Arrays.copyOf(objArray, objArray.length, String[].class);  //change objArray to String array
 
@@ -160,16 +169,14 @@ public class StringArrayUtils {
     }
 
 
-
-
-
-
     /**
      * @param array array of chars
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
+
         return null;
+
     }
 
 
